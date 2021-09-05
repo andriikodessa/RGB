@@ -68,6 +68,11 @@ class Color
             intdiv($this->getBlue() + $color->getBlue(), 2)
         );
     }
+
+    public static function random():self
+    {
+        return new self (rand(0, 255), rand(0, 255), rand(0,255));
+    }
 }
 
 $color = new Color(200, 200, 200);
@@ -98,6 +103,18 @@ $mixedColor->getBlue(); // 150
 
 echo "<pre>";
 echo $mixedColor -> getBlue();
+echo "<pre>";
+
+echo "<pre>";
+if (!$color->equals($mixedColor)) {
+    echo 'Цвета не равны';
+}
+echo "<pre>";
+
+$color2 = Color::random();
+
+echo "<pre>";
+var_dump($color2);
 echo "<pre>";
 
 echo "<pre>";
