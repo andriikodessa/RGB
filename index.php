@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 class Color
 {
@@ -54,20 +55,17 @@ class Color
 
     public function equals($color):bool
     {
-        if ($this->getRed ()!== $color->getRed () ||
-            $this->getGreen ()!== $color->getGreen () ||
-            $this->getBlue ()!== $color->getBlue ())
-        return false;
-        else
-            return true;
+        return $this->getRed ()== $color->getRed ()  &&
+            $this->getGreen ()== $color->getGreen () &&
+            $this->getBlue ()== $color->getBlue ();
     }
 
     public function mix(Color $color):Color
     {
         return new Color(
-            ($this->getRed() + $color->getRed()) / 2,
-            ($this->getGreen() + $color->getGreen()) / 2,
-            ($this->getBlue() + $color->getBlue()) / 2
+            intdiv($this->getRed() + $color->getRed(), 2),
+            intdiv($this->getGreen() + $color->getGreen(), 2),
+            intdiv($this->getBlue() + $color->getBlue(), 2)
         );
     }
 }
@@ -104,6 +102,6 @@ echo "<pre>";
 
 echo "<pre>";
 if (!$color->equals($mixedColor)) {
-    echo 'Цвета не равні';
+    echo 'Цвета не равны';
 }
 echo "<pre>";
