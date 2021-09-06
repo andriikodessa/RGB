@@ -118,7 +118,7 @@ var_dump($color2);
 echo "<pre>";
 
 echo "<pre>";
-if (!$color->equals($mixedColor)) {
+if (!$color2->equals($mixedColor)) {
     echo 'Цвета не равны';
 }
 echo "<pre>";
